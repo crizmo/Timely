@@ -2,7 +2,7 @@
 Check how much time is left for your precious day to end + a small todo list.
 
 ## Why Tho ?
-I personallythink knowing how much time is left will increase productivity. That all !
+I personally think knowing how much time is left will increase productivity. That all !
 
 ## How to use for personal use ?
 1. Fork this repo
