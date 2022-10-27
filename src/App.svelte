@@ -15,17 +15,18 @@
 
 	let timeLeft = `${hoursString} : ${minutesString} : ${secondsString}`;
 
+	
 	setInterval(() => {
 		time = new Date();
 		hours = 24 - time.getHours();
 		hoursString = hours.toString().padStart(2, "0");
-
+		
 		minutes = 60 - time.getMinutes();
 		minutesString = minutes.toString().padStart(2, "0");
-
+		
 		seconds = 60 - time.getSeconds();
 		secondsString = seconds.toString().padStart(2, "0");
-
+		
 		timeLeft = `${hoursString} : ${minutesString} : ${secondsString}`;
 	}, 1000);
 
@@ -33,26 +34,39 @@
 		fallback(node, params) {
 			const style = getComputedStyle(node);
 			const transform = style.transform === "none" ? "" : style.transform;
-
+			
 			return {
 				duration: 600,
 				easing: quintOut,
 				css: (t) => `
 					transform: ${transform} scale(${t});
 					opacity: ${t}
-				`,
-			};
-		},
-	});
+					`,
+				};
+			},
+		});
+		let todos;
+		
+		if(document.cookie) {
+			todos = JSON.parse(document.cookie.split('=')[1].split(';')[0]);
+		} else {
+			todos = [
+				{ id: 1, done: false, description: "Docs" },
+				{ id: 2, done: false, description: "Code" },
+				{ id: 3, done: false, description: "Sleep" },
+			];
+		}
+		
+		const setCookie = (cookiename, cookievalue, time) => {
+			let date = new Date();
+			date.setTime(date.getTime() * Number(time) * 36000 * 1000);
+			document.cookie = `${cookiename}=${cookievalue};path=/;expires=${date.toUTCString()};SameSite=None;Secure`;
+		};
 
-	let todos = [
-		{ id: 1, done: false, description: "Docs" },
-		{ id: 2, done: false, description: "Learn TS" },
-		{ id: 3, done: true, description: "Code" },
-		{ id: 4, done: false, description: "OS" },
-		{ id: 5, done: false, description: "Python" },
-		{ id: 6, done: false, description: "DBMS" },
-	];
+		const saveState = () => {
+			let todosString = JSON.stringify(todos);
+			setCookie('info',todosString,99999);
+		};
 
 	let uid = todos.length + 1;
 
@@ -75,10 +89,12 @@
 		} else {
 			todo.description = todo.description;
 		}
+		saveState();
 	}
 
 	function remove(todo) {
 		todos = todos.filter((t) => t !== todo);
+		saveState();
 	}
 </script>
 
