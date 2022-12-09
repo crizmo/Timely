@@ -16,3 +16,5 @@ I personally think knowing how much time is left will increase productivity. Tha
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 Idk if you want to make the site / code better you can do so by opening an issue or a pull request.
+
+Replit - https://timely.kurizu.repl.co/
