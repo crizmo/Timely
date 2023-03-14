@@ -1,8 +1,10 @@
 # Timely-Note
 Check how much time is left for your precious day to end + a small todo list.
+<img src="https://user-images.githubusercontent.com/83665497/225003217-e838eee7-0511-413f-bfb9-e7c2c936344f.png" alt="timely-ss" width="800px" />
 
 ## Why Tho ?
-I personally think knowing how much time is left will increase productivity. That all !
+I personally think knowing how much time is left will increase productivity. <br />
+Trust me, It works !
 
 ## How to use for personal use ?
 1. Fork this repo
