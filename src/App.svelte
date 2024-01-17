@@ -57,11 +57,6 @@
 			];
 		}
 		
-		// Reactive statement to save state whenever todos changes
-		$: {
-		    saveState();
-		}
-		
 		const setCookie = (cookiename, cookievalue, time) => {
 			let date = new Date();
 			date.setTime(date.getTime() * Number(time) * 36000 * 1000);
