@@ -116,7 +116,7 @@
 					out:send={{ key: todo.id }}
 					animate:flip
 				>
-					<input type="checkbox" bind:checked={todo.done} />
+					<input type="checkbox" bind:checked={todo.done} on:change={() => saveState()} />
 					{todo.description}
 					<button on:click={() => remove(todo)}>x</button>
 				</label>
@@ -131,7 +131,7 @@
 					out:send={{ key: todo.id }}
 					animate:flip
 				>
-					<input type="checkbox" bind:checked={todo.done} />
+					<input type="checkbox" bind:checked={todo.done} on:change={() => saveState()} />
 					{todo.description}
 					<button on:click={() => remove(todo)}>x</button>
 				</label>
